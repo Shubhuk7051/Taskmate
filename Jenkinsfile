@@ -24,10 +24,11 @@ pipeline {
       }
     }
   }
-  stage('Deploy') {
-    steps {
-      echo "Deploy the Container."
-      sh 'sudo docker-compose down && docker-compose up -d'
+    stage('Deploy') {
+      steps {
+        echo "Deploy the Container."
+        sh 'sudo docker-compose down && docker-compose up -d'
+      }
     }
   }
 }
