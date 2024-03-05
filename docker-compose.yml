@@ -1,6 +1,6 @@
 version : "3.3"
 services :
   web : 
-    image : shubhuk7051/taskmate-app:v1
+    image : shubhuk01/taskmate-app:v1
     ports : 
       - "8000:8000"  
