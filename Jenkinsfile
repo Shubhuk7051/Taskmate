@@ -11,7 +11,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         echo "Build the Image of Web App."
-        sh 'docker build -t taskmate .'
+        sh 'docker build -t taskmate-app .'
       }
     }
     stage('Push to Docker Hub') {
