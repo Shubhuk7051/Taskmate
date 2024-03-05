@@ -18,17 +18,17 @@ pipeline {
       steps {
         echo "Push the Image of Web App to Docker Hub."
         withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass", usernameVariable:"dockerHubUser")]){
-        // sh "docker tag taskmate-app ${env.dockerHubUser}/taskmate-app:v1"
+        sh "docker tag taskmate-app ${env.dockerHubUser}/taskmate-app:v1"
         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-        // sh "docker push ${env.dockerHubUser}/taskmate-app:v1"
+        sh "docker push ${env.dockerHubUser}/taskmate-app:v1"
       }
     }
   }
-    // stage('Deploy') {
-    //   steps {
-    //     echo "Deploy the Container."
-    //     sh 'docker-compose down && docker-compose up -d'
-    //   }
-    // }
+    stage('Deploy') {
+      steps {
+        echo "Deploy the Container."
+        sh 'docker-compose down && docker-compose up -d'
+      }
+    }
   }
 }
